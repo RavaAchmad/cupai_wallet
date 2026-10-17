@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ModeMudahProvider } from "@/components/mode-mudah-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,9 +21,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="scroll-smooth">
+    <html lang="id" className={`${inter.variable} scroll-smooth`}>
       <body className={`${inter.variable} font-sans antialiased`}>
-        {children}
+        <ModeMudahProvider>{children}</ModeMudahProvider>
       </body>
     </html>
   );

@@ -12,17 +12,32 @@ const items = [
   {
     question: "Apakah perlu daftar akun?",
     answer:
-      "Tidak. Simulasi ATM bisa diakses langsung dari dashboard tanpa registrasi.",
+      "Tidak. Simulasi bisa diakses langsung dari dashboard tanpa registrasi.",
   },
   {
-    question: "Apa itu Mode Lansia?",
+    question: "Apa itu Mode Mudah?",
     answer:
-      "Mode Lansia memperbesar semua teks di aplikasi menjadi 18px agar lebih mudah dibaca. Dapat diaktifkan di halaman Pengaturan.",
+      "Mode Mudah memperbesar semua teks di aplikasi menjadi 18px agar lebih mudah dibaca. Dapat diaktifkan di halaman Pengaturan.",
   },
   {
     question: "Apa yang terjadi pada data saya?",
     answer:
-      "Simulasi tidak menyimpan data pribadi. Tidak ada kredensial, riwayat transaksi, atau riwayat perambatan yang dikumpulkan.",
+      "Simulasi tidak menyimpan data pribadi ke server. Saldo dan riwayat hanya disimpan di browser Anda dan bisa dihapus kapan saja.",
+  },
+  {
+    question: "Berapa saldo awal dan batas transaksi?",
+    answer:
+      "Saldo awal simulasi Rp10.000.000. Nominal minimum Rp10.000 dan maksimum Rp50.000.000 per transaksi, dengan biaya simulasi 0,15%.",
+  },
+  {
+    question: "Apakah PIN saya aman?",
+    answer:
+      "PIN hanya disimpan sebagai hash di browser untuk keperluan simulasi. Jangan gunakan PIN yang sama dengan aplikasi keuangan sungguhan.",
+  },
+  {
+    question: "Apakah harga di sini harga pasar nyata?",
+    answer:
+      "Tidak. Harga adalah angka contoh yang dipakai bersama oleh seluruh halaman agar simulasi konsisten, bukan kutipan pasar langsung.",
   },
 ];
 

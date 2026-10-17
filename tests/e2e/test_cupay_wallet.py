@@ -1,6 +1,6 @@
-"""KoinATM end-to-end checks (SeleniumBase).
+"""Cupay Wallet end-to-end checks (SeleniumBase).
 
-Run:  python -m pytest tests/e2e/test_koinatm.py -v
+Run:  python -m pytest tests/e2e/test_cupay_wallet.py -v
 Env:  BASE_URL (default http://localhost:3100)
       CHROME_PATH (optional override for the Chrome binary)
 """
@@ -25,7 +25,7 @@ CHROME = os.environ.get(
 VIEWPORTS = {"desktop": (1440, 900), "mobile": (375, 667), "narrow": (320, 640)}
 
 
-class KoinAtmTest(BaseCase):
+class CupayWalletTest(BaseCase):
     def setUp(self):
         super().setUp()
         if os.path.exists(CHROME):

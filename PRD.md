@@ -1,73 +1,66 @@
-Berikut adalah **Product Requirements Document (PRD) Super Detail** dan **Prompt untuk AI Agent** Anda untuk membangun aplikasi crypto wallet dengan konsep "ATM" (sederhana, transaksional, step-by-step) dan estetika modern terpercaya seperti Pluang.com.
-
----
-
-# 📘 PRODUCT REQUIREMENTS DOCUMENT (PRD)
+# PRODUCT REQUIREMENTS DOCUMENT (PRD)
 **Nama Proyek:** Cupay Wallet
-**Visi Produk:** Menjadi gerbang crypto paling mudah digunakan di Indonesia yang menghilangkan intimidasi teknologi blockchain melalui antarmuka "ATM" yang familiar dan landing page yang membangun kepercayaan ala Pluang.com.
+**Visi Produk:** Membantu pemula di Indonesia memahami transaksi crypto melalui antarmuka "ATM" yang familiar — sebagai **simulasi edukasi**, bukan produk keuangan.
+
+> **Status: Simulasi.** Semua saldo, harga, dan transaksi adalah data contoh yang disimpan di browser (Zustand + persist). Tidak ada uang sungguhan, transaksi on-chain, akun, atau data pengguna.
 
 ## 1. Filosofi Desain & UX (The "ATM" Concept)
-*   **Estetika (Pluang Style):** Clean, banyak *white space*, kartu (cards) dengan *soft shadow*, gradient halus untuk CTA utama, tipografi sans-serif yang bold dan mudah dibaca (seperti Plus Jakarta Sans atau Inter).
+*   **Estetika:** Clean, banyak *white space*, kartu dengan *soft shadow*, tipografi sans-serif yang mudah dibaca (Inter).
 *   **UX ATM (Semua Generasi):**
-    *   **Satu Layar = Satu Keputusan:** Tidak ada dashboard yang berantakan. Layar utama adalah "Menu Utama ATM".
-    *   **Tombol Raksasa (Large Touch Targets):** Cocok untuk lansia atau pemula. Minimal ukuran 48x48px (standar accessibility).
-    *   **Flow Transaksional Berurutan:** Masukkan PIN/Biometrik ➔ Pilih Aset ➔ Masukkan Nominal (Rupiah/Kripto) ➔ Konfirmasi ➔ "Cetak Struk" (Notifikasi Sukses).
-    *   **Jargon Bebas Teknis:** Mengganti istilah *Gas Fee, Slippage, Private Key* dengan bahasa awam seperti *Biaya Jaringan, Estimasi Harga Diterima, Kunci Pemulihan*.
+    *   **Satu Layar = Satu Keputusan:** Layar utama adalah "Menu Utama ATM", bukan dashboard penuh grafik.
+    *   **Tombol Besar:** Target sentuh minimal 48x48px.
+    *   **Flow Berurutan:** Pilih jenis transaksi ➔ Pilih aset ➔ Masukkan nominal ➔ Tinjau biaya ➔ PIN ➔ Struk digital.
+    *   **Jargon Bebas Teknis:** "Biaya Jaringan", "Estimasi Harga Diterima", "Kunci Pemulihan" — bukan *gas fee*, *slippage*, *private key*.
 
 ## 2. Target Pengguna (All Generations)
-*   **Gen Z & Milenial:** Ingin proses cepat, UI estetik, *dark mode*, dan akses ke market insights.
-*   **Gen X & Boomers:** Membutuhkan teks besar, panduan *step-by-step* (wizard), kepercayaan tinggi (security badges), dan tombol bantuan yang jelas.
+*   **Gen Z & Milenial:** Proses cepat, UI estetik, *dark mode*.
+*   **Gen X & Boomers:** Teks besar (Mode Mudah), panduan wizard *step-by-step*, tombol bantuan jelas.
 
----
+## 3. Spesifikasi Fitur
 
-## 3. Spesifikasi Fitur Utama (Frontend-First)
+### A. Landing Page
+1.  **Navbar:** logo, menu Produk/Fitur/Biaya/Keamanan/Akademi, tombol "Masuk" (outline) dan "Coba Simulasi" (utama).
+2.  **Hero:** judul jujur, 2 CTA (Coba Simulasi, Lihat Cara Kerja), mockup ponsel statis.
+3.  **Kenapa Cupay:** 3 kartu — belajar tanpa risiko, alur ATM, biaya terlihat.
+4.  **Cara Kerja:** 3 langkah — Buka dashboard, Isi saldo (simulasi), Beli aset pertama.
+5.  **Market sneak peek:** harga aset populer dari sumber data tunggal dengan sparkline.
+6.  **Biaya transparan:** tabel ringkas (biaya 0,15% per transaksi, minimum/maksimum nominal).
+7.  **Kalkulator DCA** dan **Auto-invest/Earn/Price alert** berlabel ilustrasi.
+8.  **Akademi:** kartu pelajaran untuk pemula.
+9.  **FAQ:** jujur soal status simulasi.
+10. **Footer:** 5 kolom (Produk, Fitur, Biaya, Pelajari, Perusahaan), tautan hukum, disclaimer.
 
-### A. Landing Page (Pluang-Inspired)
-1.  **Hero Section:** Headline kuat ("Investasi Kripto Semudah Tarik Tunai di ATM"), ilustrasi 3D minimalis smartphone, dan 2 CTA (Daftar Sekarang / Lihat Simulasi).
-2.  **Trust & Security Bar:** Logo regulasi (Bappebti placeholder), sertifikasi keamanan ISO, enkripsi end-to-end.
-3.  **How It Works (The ATM Flow):** Animasi sederhana 3 langkah (1. Buat Akun, 2. Setor Rupiah, 3. Beli Kripto).
-4.  **Market Sneak Peek:** Ticker harga aset populer (BTC, ETH, SOL) dengan kartu berwarna hijau/merah yang bersih.
-5.  **Footer:** Edukasi, Bantuan, Kontak, Regulasi.
+### B. Core App (App Shell + Bottom Nav 5 Tab)
+Tab: **Beranda, Pasar, Dompet, Portofolio, Akun**.
 
-### B. Core App: The ATM Dashboard (Mobile First)
-1.  **Layar Login/Welcome:** "Selamat Datang di Cupay Wallet". Meminta PIN 6 digit atau Biometrik.
-2.  **Beranda (Menu Utama ATM):**
-    *   Saldo Total (Dalam Rupiah - bisa di-hide dengan ikon 'Mata').
-    *   Grid 4 Tombol Raksasa: **Setor (Deposit)**, **Tarik (Withdraw)**, **Tukar (Swap)**, **Kirim (Send)**.
-3.  **Flow Transaksi (Wizard Step-by-Step):**
-    *   *Step 1:* Pilih Koin dari daftar (dengan logo & nama jelas).
-    *   *Step 2:* Masukkan Nominal (Tombol numpad besar di layar seperti mesin ATM asli, ada tombol "Rp 100rb", "Rp 500rb", "Maks").
-    *   *Step 3:* Ringkasan & Biaya (Tampilan seperti struk ATM sebelum keluar).
-    *   *Step 4:* Animasi sukses & "Struk Digital".
+1.  **Beranda (`/dashboard`):** saldo total IDR (bisa disembunyikan), 6 aksi transaksi sebagai tombol besar.
+2.  **Wizard transaksi:**
+    *   *Beli:* nominal Rp → pilih aset → tinjau (harga dikunci 15 detik) → PIN → struk.
+    *   *Jual:* pilih aset → jumlah (25/50/75/100%) → tinjau → PIN → struk.
+    *   *Tukar:* aset asal → aset tujuan → jumlah → tinjau (kurs + biaya) → PIN → struk.
+    *   *Kirim:* aset → alamat (validasi format per jaringan) → jumlah → tinjau → PIN → status bertahap.
+    *   *Setor:* metode → nominal → instruksi + tombol simulasi → saldo bertambah.
+    *   *Tarik:* rekening → nominal → PIN → status Diproses → Berhasil.
+3.  **Riwayat (`/riwayat`):** dikelompokkan per tanggal, filter, detail stepper, ekspor CSV.
+4.  **Portofolio:** nilai sekarang, total modal, unrealized P/L, alokasi, harga rata-rata.
+5.  **Dompet:** saldo rupiah, daftar aset, tombol Kirim/Terima.
+6.  **Akun:** placeholder auth, Brankas, Pengaturan (Mode Mudah, tema), reset demo.
 
-### C. Modul Pendukung (Agar Aplikasi Terasa "Hidup")
-1.  **Pojok Edukasi (Bite-sized Learning):**
-    *   Artikel 1-menit baca: "Apa itu Bitcoin?", "Cara Aman Menyimpan Kripto".
-    *   Quiz berhadiah poin/voucher kecil.
-2.  **Market Pulse (Sentimen Harian):**
-    *   Bukan chart rumit. Hanya indikator "Cuaca Pasar" (Cerah/Bullish, Mendung/Bearish, Hujan/Crash) dengan penjelasan *kenapa* dalam bahasa manusia.
-3.  **Brankas Keamanan (Security Vault):**
-    *   Panduan interaktif cara mencatat *Seed Phrase* di kertas (bukan di screenshot/notes HP).
-    *   Fitur "Kontak Darurat" (Waris).
-4.  **Auto-Nabung (DCA - Dollar Cost Averaging):**
-    *   Fitur "Jadikan Rutin": Beli Rp 50.000 setiap hari Senin.
+### C. Aturan Transaksi (Simulasi)
+*   Minimum Rp10.000 per transaksi, maksimum Rp50.000.000.
+*   Biaya 0,15% per transaksi.
+*   PIN salah 5× → kunci 5 menit.
+*   Saldo awal simulasi: Rp10.000.000.
 
----
+## 4. Data & API
+Karena fokusnya UX frontend, tidak ada backend nyata. State transaksi disimpan di browser lewat Zustand + persist. Route handler Next.js mengembalikan data contoh dari satu sumber (`lib/atm-data.ts`).
 
-## 4. Spesifikasi Backend (Seadanya / Mock Tester)
-Karena fokus utama adalah UX Frontend, backend akan menggunakan **Mock API** (bisa via Next.js Route Handlers atau MSW - Mock Service Worker) dengan data *hardcoded*.
+*   **`GET /api/prices`** — 12 aset dengan perubahan 24 jam (deterministik per hari) dan sparkline 7 hari.
+*   **`POST /api/transaction`** — validasi PIN hash, idempotency key, delay simulasi 800–1500 ms, TXID unik `CPY-<base36>`.
 
-*   **`GET /api/user/profile`**: Mengembalikan nama, status KYC, dan preferensi UI.
-*   **`GET /api/balance`**: Mengembalikan saldo IDR dan aset kripto.
-*   **`GET /api/prices`**: Mengembalikan array harga aset dengan persentase perubahan 24 jam (statis/lorem ipsum).
-*   **`POST /api/transaction`**: Menerima payload `{type, asset, amount, pin}`, delay 1.5 detik (simulasi proses ATM), dan kembalikan `status: "success"`.
-
----
-
-## 5. Tech Stack Rekomendasi
-*   **Frontend Framework:** Next.js 14 (App Router) - Untuk SEO Landing page & kecepatan dashboard.
-*   **Styling:** Tailwind CSS + **Shadcn UI** (Sangat penting untuk aksesibilitas komponen bawaan).
-*   **Icons:** Lucide React (Modern & clean).
-*   **Animations:** Framer Motion (Untuk transisi layar ATM yang mulus).
-*   **State Management:** Zustand (Ringan, cocok untuk flow wizard).
-*   **Mocking:** MSW (Mock Service Worker) atau Next.js API Routes.
+## 5. Tech Stack
+*   **Framework:** Next.js 14 (App Router)
+*   **Styling:** Tailwind CSS + shadcn/ui
+*   **Icons:** Lucide React
+*   **Animations:** Framer Motion
+*   **State:** Zustand (+ persist middleware)

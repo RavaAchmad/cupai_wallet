@@ -34,3 +34,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# build artifacts
+build*.log
+audit-artifacts/before/
+audit-artifacts/tmp/
+.kilo/
+.agents/
+tests/e2e/__pycache__/

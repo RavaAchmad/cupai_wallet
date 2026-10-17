@@ -7,12 +7,12 @@ Simulasi edukasi transaksi crypto ATM. Built with Next.js 14 (App Router), Tailw
 ## Features
 
 - **Landing page** — hero, cara kerja, transparansi biaya, market ticker, edukasi, FAQ, CTA
-- **Dashboard** — 4 aksi ATM: Setor, Tarik, Tukar, Kirim
-- **Wizard 5 langkah** — pilih aset → nominal → biaya → PIN → struk digital
-- **Halaman harga** — daftar harga aset contoh dengan pencarian
-- **Edukasi** — artikel kripto singkat untuk pemula
-- **Brankas** — panduan menyimpan aset dan seed phrase
-- **Mode Lansia** — memperbesar seluruh teks menjadi 18px
+- **App shell** — bottom nav 5 tab (Beranda, Pasar, Dompet, Portofolio, Akun)
+- **Transaction wizards** — Beli, Jual, Tukar, Kirim, Setor, Tarik (step-by-step ATM flow)
+- **Price list** — 12 aset (BTC, ETH, USDT, BNB, SOL, XRP, ADA, DOGE, TRX, DOT, AVAX, LTC)
+- **Education** — artikel kripto singkat untuk pemula
+- **Security vault** — panduan menyimpan aset dan seed phrase
+- **Easy Mode** — memperbesar seluruh teks menjadi 18px untuk semua halaman
 - **Dark mode** — toggle terang/gelap
 
 ## Tech Stack
@@ -49,11 +49,17 @@ npm run lint    # lint
 | Route | Purpose |
 | --- | --- |
 | `/` | Landing page |
-| `/dashboard` | ATM dashboard + wizard |
-| `/harga` | Price list |
-| `/edukasi` | Education articles |
-| `/brankas` | Security vault guide |
-| `/settings` | Mode Lansia, theme |
+| `/dashboard` | ATM dashboard + transaction wizards |
+| `/pasar` | Price list |
+| `/portofolio` | Portfolio, allocation, P&L |
+| `/dompet` | Wallet balances & assets |
+| `/riwayat` | Transaction history |
+| `/akademi` | Education articles |
+| `/akun` | Account (placeholder auth) |
+| `/akun/brankas` | Security vault guide |
+| `/akun/pengaturan` | Easy Mode, theme |
+
+Legacy routes (`/harga`, `/edukasi`, `/brankas`, `/settings`) redirect to their new locations.
 
 ## Mock API
 
@@ -65,7 +71,7 @@ npm run lint    # lint
 
 ## Tests
 
-End-to-end checks use SeleniumBase:
+E2E checks use SeleniumBase (not installed by default):
 
 ```bash
 python -m pytest tests/e2e/test_cupay_wallet.py -v
@@ -75,4 +81,4 @@ Env: `BASE_URL` (default `http://localhost:3100`), optional `CHROME_PATH`.
 
 ## License
 
-Educational simulation. See [PRD.md](./PRD.md) for the original product requirements.
+Educational simulation. See [PRD.md](./PRD.md) for product requirements and honest scope notes.

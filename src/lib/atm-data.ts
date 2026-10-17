@@ -35,6 +35,42 @@ export const ASSETS = [
     priceIdr: 8_720_000,
     glyph: "N",
   },
+  {
+    symbol: "XRP",
+    name: "Ripple",
+    priceIdr: 21_000,
+    glyph: "X",
+  },
+  {
+    symbol: "ADA",
+    name: "Cardano",
+    priceIdr: 3_900,
+    glyph: "C",
+  },
+  {
+    symbol: "TRX",
+    name: "Tron",
+    priceIdr: 1_100,
+    glyph: "R",
+  },
+  {
+    symbol: "DOT",
+    name: "Polkadot",
+    priceIdr: 19_500,
+    glyph: "P",
+  },
+  {
+    symbol: "AVAX",
+    name: "Avalanche",
+    priceIdr: 35_000,
+    glyph: "A",
+  },
+  {
+    symbol: "LTC",
+    name: "Litecoin",
+    priceIdr: 540_000,
+    glyph: "L",
+  },
 ] as const;
 
 export type Asset = (typeof ASSETS)[number];
@@ -48,6 +84,12 @@ export const NETWORK_FEE: Record<AssetSymbol, number> = {
   USDT: 2_000,
   DOGE: 1_500,
   BNB: 2_500,
+  XRP: 500,
+  ADA: 1_000,
+  TRX: 500,
+  DOT: 2_000,
+  AVAX: 2_000,
+  LTC: 3_000,
 };
 
 export type TransactionType = "deposit" | "withdraw" | "swap" | "send";

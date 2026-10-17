@@ -5,6 +5,7 @@ import { FAQ } from "@/components/faq";
 import { AtmHeroVisual } from "@/components/atm-hero-visual";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Reveal } from "@/components/reveal";
+import { SimulationBanner } from "@/components/simulation-banner";
 import {
   ShieldCheck,
   Accessibility,
@@ -46,7 +47,7 @@ const transparencyItems = [
     icon: <Accessibility className="h-6 w-6" />,
     title: "Dirancang untuk semua usia",
     description:
-      "Tombol besar, teks jelas, dan Mode Lansia yang memperbesar seluruh tampilan.",
+        "Tombol besar, teks jelas, dan Mode Mudah yang memperbesar seluruh tampilan.",
   },
 ];
 
@@ -77,6 +78,8 @@ const educationCards = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SimulationBanner />
+
       {/* Navbar */}
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-6 sm:px-8 lg:px-10">
@@ -88,7 +91,7 @@ export default function Home() {
               className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-base font-bold text-primary-foreground"
               aria-hidden="true"
             >
-              K
+              C
             </span>
             <span className="text-lg font-bold tracking-tight">Cupay</span>
           </Link>
@@ -431,12 +434,12 @@ export default function Home() {
               <h3 className="text-sm font-bold">Pengaturan</h3>
               <ul className="mt-4 space-y-2.5 text-sm">
                 <li>
-                  <Link
+                <Link
                     href="/settings"
                     className="inline-flex min-h-[44px] items-center text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
-                  >
-                    Mode Lansia
-                  </Link>
+                >
+                    Mode Mudah
+                </Link>
                 </li>
               </ul>
             </nav>
@@ -449,6 +452,10 @@ export default function Home() {
             <p className="text-xs text-muted-foreground">
               Saldo, harga, dan transaksi adalah data contoh.
             </p>
+          </div>
+
+          <div className="mt-6">
+            <SimulationBanner />
           </div>
         </div>
       </footer>

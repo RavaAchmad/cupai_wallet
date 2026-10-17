@@ -21,6 +21,7 @@ import {
   type TransactionType,
   TRANSACTION_TITLE,
 } from "@/lib/atm-data";
+import { getQuotes, type PriceQuote } from "@/lib/prices";
 import {
   ChevronLeft,
   CheckCircle2,
@@ -51,6 +52,7 @@ export function AtmWizard({ open, onOpenChange, type }: AtmWizardProps) {
   const [txid, setTxid] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [quotes, setQuotes] = useState<PriceQuote[]>([]);
 
   useEffect(() => {
     if (open) {
@@ -65,9 +67,15 @@ export function AtmWizard({ open, onOpenChange, type }: AtmWizardProps) {
     }
   }, [open]);
 
+  useEffect(() => {
+    const quotes = getQuotes();
+    setQuotes(quotes);
+  }, []);
+
+  const priceMap = Object.fromEntries(quotes.map((q) => [q.symbol, q.price]));
   const nominal = parseRupiah(amount);
   const fee = NETWORK_FEE[asset.symbol];
-  const coins = asset.priceIdr > 0 ? nominal / asset.priceIdr : 0;
+  const coins = priceMap[asset.symbol] ? nominal / priceMap[asset.symbol] : 0;
 
   const visibleAssets = ASSETS.filter(
     (a) =>
@@ -109,6 +117,7 @@ export function AtmWizard({ open, onOpenChange, type }: AtmWizardProps) {
               query={query}
               setQuery={setQuery}
               assets={visibleAssets}
+              priceMap={priceMap}
               onPick={(a) => {
                 setAsset(a);
                 setStep("amount");
@@ -188,11 +197,13 @@ function StepAsset({
   query,
   setQuery,
   assets,
+  priceMap,
   onPick,
 }: {
   query: string;
   setQuery: (q: string) => void;
   assets: readonly Asset[];
+  priceMap: Record<string, number>;
   onPick: (a: Asset) => void;
 }) {
   return (
@@ -226,7 +237,7 @@ function StepAsset({
                 <p className="text-sm text-muted-foreground">{a.symbol}</p>
               </div>
               <p className="text-right text-sm text-muted-foreground tabular-nums">
-                {formatRupiah(a.priceIdr)}
+                {formatRupiah(priceMap[a.symbol] ?? a.priceIdr)}
               </p>
             </button>
           ))
