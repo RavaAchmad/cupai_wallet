@@ -3,7 +3,7 @@ Berikut adalah **Product Requirements Document (PRD) Super Detail** dan **Prompt
 ---
 
 # 📘 PRODUCT REQUIREMENTS DOCUMENT (PRD)
-**Nama Proyek:** CupaiWallet (Sementara)
+**Nama Proyek:** Cupay Wallet
 **Visi Produk:** Menjadi gerbang crypto paling mudah digunakan di Indonesia yang menghilangkan intimidasi teknologi blockchain melalui antarmuka "ATM" yang familiar dan landing page yang membangun kepercayaan ala Pluang.com.
 
 ## 1. Filosofi Desain & UX (The "ATM" Concept)
@@ -30,7 +30,7 @@ Berikut adalah **Product Requirements Document (PRD) Super Detail** dan **Prompt
 5.  **Footer:** Edukasi, Bantuan, Kontak, Regulasi.
 
 ### B. Core App: The ATM Dashboard (Mobile First)
-1.  **Layar Login/Welcome:** "Selamat Datang di KoinATM". Meminta PIN 6 digit atau Biometrik.
+1.  **Layar Login/Welcome:** "Selamat Datang di Cupay Wallet". Meminta PIN 6 digit atau Biometrik.
 2.  **Beranda (Menu Utama ATM):**
     *   Saldo Total (Dalam Rupiah - bisa di-hide dengan ikon 'Mata').
     *   Grid 4 Tombol Raksasa: **Setor (Deposit)**, **Tarik (Withdraw)**, **Tukar (Swap)**, **Kirim (Send)**.

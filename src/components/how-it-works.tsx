@@ -1,59 +1,83 @@
 "use client";
 
-import { motion } from "framer-motion";
-
-import { cn } from "@/components/ui/cn";
+import { UserPlus, Wallet, ArrowLeftRight, ReceiptText } from "lucide-react";
 
 const steps = [
   {
-    title: "Buat Akun",
-    description: "Daftar dengan email dan verifikasi ID. Proses hanya butuh 2 menit.",
-    icon: "👤",
+    title: "Buat profil demo",
+    icon: <UserPlus className="h-5 w-5" />,
+    description:
+      "Buka simulasi di dashboard. Tidak perlu daftar dan tidak ada uang sungguhan terlibat.",
   },
   {
-    title: "Setor Rupiah",
-    description: "Masukkan uang tunai ke ATM KoinATM. Saldo akan segera terupdate.",
-    icon: "💰",
+    title: "Lihat saldo simulasi",
+    icon: <Wallet className="h-5 w-5" />,
+    description:
+      "Saldo dalam simulasi ditampilkan sebesar Rp 10.000.000 dalam rupiah.",
   },
   {
-    title: "Beli Kripto",
-    description: "Pilih aset dan jumlah. Koin akan segera dikirim ke dompet Anda.",
-    icon: "₿",
+    title: "Pilih transaksi ATM",
+    icon: <ArrowLeftRight className="h-5 w-5" />,
+    description:
+      "Pilih Setor, Tarik, Tukar, atau Kirim di layar simulasi ATM.",
+  },
+  {
+    title: "Terima struk digital",
+    icon: <ReceiptText className="h-5 w-5" />,
+    description:
+      "Konfirmasi dengan PIN simulasi dan lihat struk transaksi digital.",
   },
 ];
 
+/**
+ * Sequential process section. Uses a vertical timeline with a connecting rail —
+ * the numbering is meaningful here because the steps must be done in order.
+ */
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl font-bold mb-4">Cara Kerja</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Langkah demi langkah, seperti menggunakan ATM tunai
-          </p>
-        </div>
+    <section
+      id="cara-kerja"
+      className="border-t border-border/30 py-20 sm:py-24"
+    >
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              Cara kerja simulasi
+            </h2>
+            <p className="mt-4 max-w-md text-lg leading-relaxed text-muted-foreground">
+              Empat langkah yang sama seperti alur transaksi pada crypto ATM —
+              dijalankan tanpa uang sungguhan.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={cn(
-                "rounded-xl border border-border/30 p-6 sm:p-8 bg-card/50 hover:bg-card/80 transition-colors"
-              )}
-            >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-2xl">
-                {step.icon}
-              </div>
-              <h3 className="text-xl font-medium mt-4">{step.title}</h3>
-              <p className="text-muted-foreground text-sm mt-2">
-                {step.description}
-              </p>
-            </motion.div>
-          ))}
+          <ol className="relative">
+            {steps.map((step, i) => (
+              <li key={step.title} className="relative flex gap-5 pb-9 last:pb-0">
+                {/* Connecting rail */}
+                {i < steps.length - 1 && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-[21px] top-11 bottom-0 w-px bg-border"
+                  />
+                )}
+                <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-input bg-card text-primary shadow-sm">
+                  {step.icon}
+                </span>
+                <div className="pt-1.5">
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-primary">
+                    Langkah {i + 1}
+                  </p>
+                  <h3 className="mt-1 text-lg font-bold tracking-tight">
+                    {step.title}
+                  </h3>
+                  <p className="mt-1.5 max-w-md text-sm leading-relaxed text-muted-foreground">
+                    {step.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

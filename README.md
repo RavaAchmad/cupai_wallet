@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cupay Wallet
+
+Simulasi edukasi transaksi crypto ATM. Built with Next.js 14 (App Router), Tailwind CSS, shadcn/ui, Framer Motion, and Zustand.
+
+> **Disclaimer:** Cupay Wallet adalah proyek simulasi edukasi. Bukan produk keuangan. Tidak ada uang sungguhan, transaksi nyata, atau akun yang dibuat. Semua saldo, harga, dan transaksi adalah data contoh.
+
+## Features
+
+- **Landing page** — hero, cara kerja, transparansi biaya, market ticker, edukasi, FAQ, CTA
+- **Dashboard** — 4 aksi ATM: Setor, Tarik, Tukar, Kirim
+- **Wizard 5 langkah** — pilih aset → nominal → biaya → PIN → struk digital
+- **Halaman harga** — daftar harga aset contoh dengan pencarian
+- **Edukasi** — artikel kripto singkat untuk pemula
+- **Brankas** — panduan menyimpan aset dan seed phrase
+- **Mode Lansia** — memperbesar seluruh teks menjadi 18px
+- **Dark mode** — toggle terang/gelap
+
+## Tech Stack
+
+| Layer | Tool |
+| --- | --- |
+| Framework | Next.js 14 (App Router) |
+| Styling | Tailwind CSS + shadcn/ui |
+| Icons | Lucide React |
+| Animations | Framer Motion |
+| State | Zustand |
+| Mock API | Next.js Route Handlers |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev     # start dev server
+npm run build   # production build
+npm run start   # serve production build
+npm run lint    # lint
+```
 
-## Learn More
+## Routes
 
-To learn more about Next.js, take a look at the following resources:
+| Route | Purpose |
+| --- | --- |
+| `/` | Landing page |
+| `/dashboard` | ATM dashboard + wizard |
+| `/harga` | Price list |
+| `/edukasi` | Education articles |
+| `/brankas` | Security vault guide |
+| `/settings` | Mode Lansia, theme |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Mock API
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Endpoint | Method | Returns |
+| --- | --- | --- |
+| `/api/balance` | GET | Simulated IDR balance + assets |
+| `/api/prices` | GET | Asset prices with 24h change |
+| `/api/transaction` | POST | Simulated transaction result |
 
-## Deploy on Vercel
+## Tests
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+End-to-end checks use SeleniumBase:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+python -m pytest tests/e2e/test_cupay_wallet.py -v
+```
+
+Env: `BASE_URL` (default `http://localhost:3100`), optional `CHROME_PATH`.
+
+## License
+
+Educational simulation. See [PRD.md](./PRD.md) for the original product requirements.

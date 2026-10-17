@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "KoinATM - Investasi Kripto Semudah Tarik Tunai di ATM",
+  title: "Cupay Wallet - Investasi Kripto Semudah Tarik Tunai di ATM",
   description:
     "Gerbang crypto paling mudah digunakan di Indonesia. Antarmuka ATM yang familiar, aman, dan terpercaya.",
 };

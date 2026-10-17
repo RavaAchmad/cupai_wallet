@@ -532,7 +532,7 @@ function StepReceipt({
   const reduce = useReducedMotion();
 
   async function share() {
-    const text = `Transaksi KoinATM\n${asset.name} ${coins.toFixed(8)}\n${formatRupiah(nominal)}\nID: ${txid}`;
+    const text = `Transaksi Cupay Wallet\n${asset.name} ${coins.toFixed(8)}\n${formatRupiah(nominal)}\nID: ${txid}`;
     if (navigator.share) {
       await navigator.share({ text }).catch(() => {});
       return;

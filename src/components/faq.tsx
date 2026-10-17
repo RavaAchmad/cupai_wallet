@@ -2,7 +2,7 @@ const items = [
   {
     question: "Apakah ini simulasi atau uang sungguhan?",
     answer:
-      "Simulasi di dashboard KoinATM menggunakan data contoh. Tidak ada uang sungguhan, transaksi nyata, atau akun yang dibuat. Gunakan untuk belajar.",
+      "Simulasi di dashboard Cupay Wallet menggunakan data contoh. Tidak ada uang sungguhan, transaksi nyata, atau akun yang dibuat. Gunakan untuk belajar.",
   },
   {
     question: "Di mana data simulasi disimpan?",
@@ -35,7 +35,7 @@ export function FAQ() {
             Pertanyaan yang Sering Muncul
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Jawaban untuk pertanyaan umum tentang simulasi KoinATM.
+            Jawaban untuk pertanyaan umum tentang simulasi Cupay Wallet.
           </p>
         </div>
 
