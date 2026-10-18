@@ -42,3 +42,9 @@ audit-artifacts/tmp/
 .kilo/
 .agents/
 tests/e2e/__pycache__/
+
+# recon output
+.recon/
+tools/recon/.recon/
+tools/recon/docs/
+tools/recon/__pycache__/
