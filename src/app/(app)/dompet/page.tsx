@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { formatRupiah, ASSETS } from "@/lib/atm-data";
 import { useWallet } from "@/lib/wallet-store";
